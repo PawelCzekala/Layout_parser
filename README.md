@@ -2,6 +2,8 @@
 
 **FastAPI-based microservice** for detecting and evaluating document layout elements (titles, text, tables, figures, etc.) using **PaddleOCR** and **PPStructure**.
 
+<img width="400" height="532" alt="layout_detection" src="https://github.com/user-attachments/assets/1ca10261-55cf-4f45-b49f-f83f857a20e4" />
+
 ---
 
 ## Features
@@ -83,6 +85,8 @@ Example response:
 }
 ```
 
+---
+
 ## Deployment with Docker
 1. Build image
 ```bash
@@ -98,6 +102,7 @@ Service will be available at http://localhost:8000
 
 Go to: http://localhost:8000/docs
 
+---
 
 ## Project Structure
 ```bash
@@ -113,18 +118,22 @@ layout_parser/
 └── README.md
 ```
 
+---
+
 ## Ground-Truth Format
 Expected .json format (COCO-style):
 
 ```json
 {
-  "categories": [{ "id": 1, "name": "title" }, ...],
+  "categories": [{ "id": 1, "name": "title" }],
   "annotations": [
-    { "bbox": [x, y, width, height], "category_id": 1 },
-    ...
+    { "bbox": ["x", "y", "width", "height"],
+      "category_id": 1 },
   ]
 }
 ```
+
+---
 
 ## Notes
 Supported categories: title, text, list, table, figure, etc.
@@ -138,6 +147,8 @@ Color-coded evaluation output:
 ❌ FP: red
 
 🟦 FN: blue
+
+---
 
 ## License
 MIT License. Use at your own risk.
